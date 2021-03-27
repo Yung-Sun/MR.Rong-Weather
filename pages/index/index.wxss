@@ -1,0 +1,135 @@
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin:25px 5px;
+}
+
+.location{
+    display: flex;
+    font-size: 18px;
+    width: 50%;
+    justify-content: center;
+}
+.location > .locationIcon{
+    height: 13px;
+    width: 13px;
+    background: #333;
+    border-radius: 50%;
+    margin: 0 10px;
+    position: relative;
+}
+.location > .locationIcon::before{
+    content: '';
+    height: 15px;
+    width: 2px;
+    background: #333;
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.temperatureWrapper{
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+    font-size: 24px;
+    padding-left: 8%;
+}
+.temperature{
+    font-size: 84px;
+}
+
+.weatherInfo{
+    text-align: center;
+}
+.weatherInfo .weatherConditions{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 5px 0;
+}
+.weatherInfo .weatherConditions .weatherIcon{
+    height: 25px;
+    width: 25px;
+    margin: 0 3px;
+}
+.weatherInfo .weatherDetail{
+    margin: 10px 0;
+}
+
+
+
+.temperatureCardsList{
+    margin-top: 40px;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.temperatureCardsList .temperatureCard{
+    width: 28%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.temperatureCardsList .temperatureCard>.title{
+    font-size: 18px;
+    color: #555;
+}
+.temperatureCardsList .temperatureCard .temp >text{
+    font-size: 26px;
+    color: #555;
+}
+.temperatureCardsList .temperatureCard>.windInfo >text{
+    font-size: 14px;
+    color: #989898;
+}
+
+
+.weatherDetailList{
+    margin-top:80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: top;
+    flex-wrap: wrap;
+    position: relative;
+}
+.weatherDetailList::before{
+    position: absolute;
+    content: '';
+    width: 36%;
+    height: 200px;
+    border-left: 1px solid #E5E5E5;
+    border-right: 1px solid #E5E5E5;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-55%);
+}
+.weatherDetailList::after{
+    position: absolute;
+    content: '';
+    width: 90%;
+    height: 1px;
+    border-bottom: 1px solid #E5E5E5;
+    top: 44%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+.weatherDetailList .weatherDetail{
+    width: 33%;
+    height: 90px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+.weatherDetailList .weatherDetail .title{
+    font-size: 20px;
+    color: #989898;
+    padding-bottom: 4px;
+}
+.weatherDetailList .weatherDetail >.content>.maxTemp,.minTemp{
+    font-size: 14px;
+    color: #989898;
+}

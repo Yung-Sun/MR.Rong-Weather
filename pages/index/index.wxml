@@ -1,0 +1,102 @@
+<!-- index.wxml -->
+<view class="container">
+  <view class="location">
+    <text class="locationIcon"></text>
+    <text class="locationName">{{district}}</text>
+  </view>
+
+  <view class="mainInfo">
+    <view class="temperatureWrapper">
+      <text class="temperature">{{temp}}</text>
+      <text>℃</text>
+    </view>
+    <view class="weatherInfo">
+      <view class="weatherConditions">
+        <image class="weatherIcon" src="{{iconSrc}}" alt="天气图标"></image>
+        <text class="weatherDescription">{{text}}</text>
+      </view>
+      <view class="weatherDetail">
+        湿度 <text>{{humidity}}</text> %
+        |
+        <text>{{windDir}}</text>\t<text>{{windScale}}</text>级
+        |
+        气压<text> {{pressure}} </text>hPa
+      </view>
+    </view>
+  </view>
+
+  <view class="temperatureCardsList">
+    <view class="today temperatureCard">
+      <view class="title">今 天</view>
+      <view class="temp"><text>{{todayRowData.tempMin}}-{{todayRowData.tempMax}}</text>℃</view>
+      <view class="windInfo">
+        <text class="windDir">{{todayRowData.windDirDay}} </text>
+        <text class="windScale">{{todayRowData.windScaleDay}}级</text>
+      </view>
+    </view>
+    <view class="tomorrow temperatureCard">
+      <view class="title">明 天</view>
+      <view class="temp"><text>{{tomorrowRowData.tempMin}}-{{tomorrowRowData.tempMax}}</text>℃</view>
+      <view class="windInfo">
+        <text class="windDir">{{tomorrowRowData.windDirDay}} </text>
+        <text class="windScale">{{tomorrowRowData.windScaleDay}}级</text>
+      </view>
+    </view>
+    <view class="afterTomorrow temperatureCard">
+      <view class="title">后 天</view>
+      <view class="temp"><text>{{afterTomorrowRowData.tempMin}}-{{afterTomorrowRowData.tempMax}}</text>℃</view>
+      <view class="windInfo">
+        <text class="windDir">{{afterTomorrowRowData.windDirDay}} </text>
+        <text class="windScale">{{afterTomorrowRowData.windScaleDay}}级</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="weatherDetailList">
+    <view class="weatherDetail">
+      <view class="title">当日气温</view>
+      <view class="content">
+        <view class="maxTemp">最高:
+          <text style="color: #333;font-size:22px;">{{todayRowData.tempMax}}</text>
+          <text style="color: #333;font-size:14px;">℃</text>
+        </view>
+        <view class="minTemp">最低:
+          <text style="color: #333;font-size:22px;">{{todayRowData.tempMin}}</text>
+          <text style="color: #333;font-size:14px;">℃</text>
+        </view>
+      </view>
+    </view>
+    <view class="weatherDetail">
+      <view class="title">体感温度</view>
+      <view class="content" style="padding-top: 6px;">
+        <text style="color: #333;font-size:32px;">{{feelsLike}}</text>℃
+      </view>
+    </view>
+    <view class="weatherDetail">
+      <view class="title">风向风速</view>
+      <view class="content">
+        <text style="color: #333;font-size:18px;">{{windDir}}\n</text>
+        <text style="color: #333;font-size:18px;">{{windScale}} km/h</text>
+      </view>
+    </view>
+    <view class="weatherDetail">
+      <view class="title">相对湿度</view>
+      <view class="content">
+        <text style="color: #333;font-size:32px;">{{humidity}}</text>%
+      </view>
+    </view>
+    <view class="weatherDetail">
+      <view class="title">大气压强</view>
+      <view class="content">
+        <text style="color: #333;font-size:32px;">{{pressure}}</text>hPa
+      </view>
+    </view>
+    <view class="weatherDetail">
+      <view class="title">降雨量(h)</view>
+      <view class="content">
+        <text style="color: #333;font-size:32px;">{{precip}}</text>mm
+      </view>
+    </view>
+  </view>
+  {{iconSrc1}}
+</view>
