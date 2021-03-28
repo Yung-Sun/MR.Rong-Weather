@@ -1,10 +1,6 @@
 // index.js
 // 获取应用实例
 const app = getApp()
-
-
-
-
 let _page, _this;
 let getLocation = () => {
   wx.getLocation({
@@ -68,10 +64,11 @@ Page({
   },
   getFutureWeather(districtId) {
     wx.request({
-      url: `https://devapi.qweather.com/v7/weather/3d?key=74be5e8b8bdb46ca970b3703ae3f165d&location=${districtId}`,
+      url: `https://devapi.qweather.com/v7/weather/7d?key=74be5e8b8bdb46ca970b3703ae3f165d&location=${districtId}`,
       success: function (res) {
-        let todayRowData, tomorrowRowData, afterTomorrowRowData
-        [todayRowData, tomorrowRowData, afterTomorrowRowData] = res.data.daily
+        let todayRowData, tomorrowRowData, afterTomorrowRowData, day4RowData, day5RowData, day6RowData, day7RowData
+        [todayRowData, tomorrowRowData, afterTomorrowRowData, day4RowData, day5RowData, day6RowData, day7RowData] = res.data.daily
+        console.log(res.data.daily)
         _page.setData({ todayRowData, tomorrowRowData, afterTomorrowRowData })
         wx.hideLoading()
       }

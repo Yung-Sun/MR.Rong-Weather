@@ -25,32 +25,14 @@
     </view>
   </view>
 
-  <view class="temperatureCardsList">
-    <view class="today temperatureCard">
-      <view class="title">今 天</view>
-      <view class="temp"><text>{{todayRowData.tempMin}}-{{todayRowData.tempMax}}</text>℃</view>
-      <view class="windInfo">
-        <text class="windDir">{{todayRowData.windDirDay}} </text>
-        <text class="windScale">{{todayRowData.windScaleDay}}级</text>
-      </view>
-    </view>
-    <view class="tomorrow temperatureCard">
-      <view class="title">明 天</view>
-      <view class="temp"><text>{{tomorrowRowData.tempMin}}-{{tomorrowRowData.tempMax}}</text>℃</view>
-      <view class="windInfo">
-        <text class="windDir">{{tomorrowRowData.windDirDay}} </text>
-        <text class="windScale">{{tomorrowRowData.windScaleDay}}级</text>
-      </view>
-    </view>
-    <view class="afterTomorrow temperatureCard">
-      <view class="title">后 天</view>
-      <view class="temp"><text>{{afterTomorrowRowData.tempMin}}-{{afterTomorrowRowData.tempMax}}</text>℃</view>
-      <view class="windInfo">
-        <text class="windDir">{{afterTomorrowRowData.windDirDay}} </text>
-        <text class="windScale">{{afterTomorrowRowData.windScaleDay}}级</text>
-      </view>
-    </view>
+  <view class="tabs">
+
   </view>
+
+
+  <tempCardsList today-row-data="{{todayRowData}}" tomorrow-row-data="{{tomorrowRowData}}"
+    afterTomorrowRowData="{{afterTomorrowRowData}}">
+  </tempCardsList>
 
   <view class="weatherDetailList">
     <view class="weatherDetail">
@@ -98,5 +80,9 @@
       </view>
     </view>
   </view>
-  {{iconSrc1}}
+
+
+
+
+
 </view>
