@@ -26,13 +26,15 @@
   </view>
 
   <view class="tabs">
-
+    <text class="tempByDay">逐日查看</text>
+    |
+    <text class="tempByHour">逐时查看</text>
   </view>
 
 
-  <tempCardsList today-row-data="{{todayRowData}}" tomorrow-row-data="{{tomorrowRowData}}"
+  <tempByDay today-row-data="{{todayRowData}}" tomorrow-row-data="{{tomorrowRowData}}"
     afterTomorrowRowData="{{afterTomorrowRowData}}">
-  </tempCardsList>
+  </tempByDay>
 
   <view class="weatherDetailList">
     <view class="weatherDetail">

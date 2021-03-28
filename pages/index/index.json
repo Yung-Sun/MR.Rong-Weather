@@ -1,5 +1,5 @@
 {
   "usingComponents": {
-    "tempCardsList": "../../components/tempCardsList/tempCardsList"
+    "tempByDay": "../../components/tempByDay/tempByDay"
   }
 }
