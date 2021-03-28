@@ -1,6 +1,10 @@
 // index.js
 // 获取应用实例
 const app = getApp()
+
+
+
+
 let _page, _this;
 let getLocation = () => {
   wx.getLocation({
@@ -10,7 +14,15 @@ let getLocation = () => {
       const longitude = res.longitude
       console.log('纬度：' + latitude + '，经度：' + longitude)
       _this.getDistrict(latitude, longitude)
+      wx.hideLoading()
+      showLoading('正在加载')
     }
+  })
+}
+let showLoading = (content) => {
+  wx.showLoading({
+    title: content,
+    mask: true
   })
 }
 
@@ -25,8 +37,8 @@ Page({
   // 页面初始化时获取位置信息
   onLoad() {
     _this = this;
+    showLoading('正在定位')
     getLocation()
-
   },
   getDistrict(latitude, longitude) {
     _page = this;
@@ -61,6 +73,7 @@ Page({
         let todayRowData, tomorrowRowData, afterTomorrowRowData
         [todayRowData, tomorrowRowData, afterTomorrowRowData] = res.data.daily
         _page.setData({ todayRowData, tomorrowRowData, afterTomorrowRowData })
+        wx.hideLoading()
       }
     })
   }
