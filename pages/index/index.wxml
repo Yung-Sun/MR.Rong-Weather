@@ -25,16 +25,23 @@
     </view>
   </view>
 
-  <view class="tabs">
-    <text class="tempByDay">逐日查看</text>
-    |
-    <text class="tempByHour">逐时查看</text>
+  <view class="tempList">
+    <view class="tabs">
+      <text data-type="tempByDay" class="tab {{tempListType==='tempByDay'?'selected':''}}" bindtap="toggle">逐日</text>
+      |
+      <text data-type="tempByHour" class="tab {{tempListType==='tempByHour'?'selected':''}}" bindtap="toggle">逐时</text>
+    </view>
+    <tempByDay wx:if="{{tempListType==='tempByDay'? true:''}}" today-row-data="{{todayRowData}}"
+      tomorrow-row-data="{{tomorrowRowData}}" after-tomorrow-row-data="{{afterTomorrowRowData}}">
+    </tempByDay>
+    <tempByHour wx:if="{{tempListType==='tempByHour'? true:''}}" even-hourly-data="{{evenHourlyData}}">
+    </tempByHour>
   </view>
 
 
-  <tempByDay today-row-data="{{todayRowData}}" tomorrow-row-data="{{tomorrowRowData}}"
-    afterTomorrowRowData="{{afterTomorrowRowData}}">
-  </tempByDay>
+
+
+
 
   <view class="weatherDetailList">
     <view class="weatherDetail">

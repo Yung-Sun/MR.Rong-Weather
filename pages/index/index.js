@@ -27,8 +27,10 @@ Page({
     district: '定位中',
     districtId: undefined,
     text: '-',
-    iconSrc: '../../images/icon/999.png'
+    iconSrc: '../../images/icon/999.png',
+    tempListType: 'tempByHour'
   },
+
 
   // 页面初始化时获取位置信息
   onLoad() {
@@ -68,10 +70,30 @@ Page({
       success: function (res) {
         let todayRowData, tomorrowRowData, afterTomorrowRowData, day4RowData, day5RowData, day6RowData, day7RowData
         [todayRowData, tomorrowRowData, afterTomorrowRowData, day4RowData, day5RowData, day6RowData, day7RowData] = res.data.daily
-        console.log(res.data.daily)
+        // console.log(res.data.daily)
         _page.setData({ todayRowData, tomorrowRowData, afterTomorrowRowData })
+        _page.getFutureWeatherByHour(districtId)
         wx.hideLoading()
       }
     })
-  }
+  },
+  getFutureWeatherByHour(districtId) {
+    wx.request({
+      url: `https://devapi.qweather.com/v7/weather/24h?key=74be5e8b8bdb46ca970b3703ae3f165d&location=${districtId}`,
+      success: function (res) {
+        let fullHourlyData = res.data.hourly
+        let evenHourlyData = []
+        for (let i = 0; i < fullHourlyData.length; i++) {
+          if (i % 2 !== 0) {
+            evenHourlyData.push(fullHourlyData[i])
+          }
+        }
+        _page.setData({ evenHourlyData })
+      }
+    })
+  },
+  toggle(e) {
+    let tempListType = e.currentTarget.dataset.type
+    _page.setData({ tempListType })
+  },
 })

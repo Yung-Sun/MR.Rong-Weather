@@ -1,0 +1,11 @@
+<view class="temperatureCardsList">
+
+    <view class="temperatureCard" wx:for="{{evenHourlyData}}" wx:key="index">
+        <view class="time">{{timeList[index]}}</view>
+        <view class="temp"><text class="tempNum">{{evenHourlyData[index].temp}}</text>℃</view>
+        <view class="weatherInfo">
+            <image class="weatherIcon" src="{{srcList[index]}}" alt="天气图标"></image>
+            <text class="weatherText">{{evenHourlyData[index].text}}</text>
+        </view>
+    </view>
+</view>

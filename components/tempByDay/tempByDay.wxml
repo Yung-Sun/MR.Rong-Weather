@@ -6,6 +6,7 @@
             <text class="windDir">{{todayRowData.windDirDay}} </text>
             <text class="windScale">{{todayRowData.windScaleDay}}级</text>
         </view>
+
     </view>
     <view class="tomorrow temperatureCard">
         <view class="title">明 天</view>
