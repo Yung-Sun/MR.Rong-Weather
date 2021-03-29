@@ -2,7 +2,7 @@
 // 获取应用实例
 const app = getApp()
 let _page, _this;
-let getLocation = () => {
+let fetch = () => {
   wx.getLocation({
     type: 'wgs84',
     success(res) {
@@ -12,6 +12,14 @@ let getLocation = () => {
       _this.getDistrict(latitude, longitude)
       wx.hideLoading()
       showLoading('正在加载')
+    },
+    fail(res) {
+      console.log(res)
+      wx.showToast({
+        title: '定位失败,请开启定位权限或手机GPS',
+        icon: 'none',
+        duration: 20000
+      })
     }
   })
 }
@@ -28,21 +36,25 @@ Page({
     districtId: undefined,
     text: '-',
     iconSrc: '../../images/icon/999.png',
-    tempListType: 'tempByHour'
+    tempListType: 'tempByDay'
   },
 
 
   // 页面初始化时获取位置信息
   onLoad() {
     _this = this;
+    wx.stopPullDownRefresh()
     showLoading('正在定位')
-    getLocation()
+    fetch()
   },
+
+
+
   getDistrict(latitude, longitude) {
     _page = this;
     wx.request({
       url: `https://geoapi.qweather.com/v2/city/lookup?key=74be5e8b8bdb46ca970b3703ae3f165d&location=${longitude},${latitude}`,
-      success: function (res) {
+      success(res) {
         const districtId = res.data.location[0].id
         _page.setData({
           district: res.data.location[0].name,
@@ -51,6 +63,7 @@ Page({
         _page.getNowWeather(districtId)
         _page.getFutureWeather(districtId)
       }
+
     })
   },
   getNowWeather(districtId) {
@@ -70,7 +83,6 @@ Page({
       success: function (res) {
         let todayRowData, tomorrowRowData, afterTomorrowRowData, day4RowData, day5RowData, day6RowData, day7RowData
         [todayRowData, tomorrowRowData, afterTomorrowRowData, day4RowData, day5RowData, day6RowData, day7RowData] = res.data.daily
-        // console.log(res.data.daily)
         _page.setData({ todayRowData, tomorrowRowData, afterTomorrowRowData })
         _page.getFutureWeatherByHour(districtId)
         wx.hideLoading()
@@ -96,4 +108,9 @@ Page({
     let tempListType = e.currentTarget.dataset.type
     _page.setData({ tempListType })
   },
+  // 监听用户下拉动作
+  onPullDownRefresh: function () {
+    _this = this;
+    _this.onLoad()
+  }
 })
