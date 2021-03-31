@@ -76,7 +76,7 @@
       </view>
     </view>
     <view class="weatherDetail">
-      <view class="title">紫外线强度</view>
+      <view class="title">紫外强度</view>
       <view class="content">
         <text style="color: #333;font-size:32px;">{{todayRowData.uvIndex}}</text>级
       </view>
