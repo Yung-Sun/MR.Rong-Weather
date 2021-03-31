@@ -16,9 +16,9 @@ let fetch = () => {
     fail(res) {
       console.log(res)
       wx.showToast({
-        title: '定位失败,请开启定位权限或手机GPS',
+        title: '定位失败，请开启定位权限或手机GPS',
         icon: 'none',
-        duration: 20000
+        duration: 10000
       })
     }
   })
