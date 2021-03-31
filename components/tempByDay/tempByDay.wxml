@@ -1,28 +1,15 @@
 <view class="temperatureCardsList">
-    <view class="today temperatureCard">
-        <view class="title">今 天</view>
-        <view class="temp"><text class="tempNum">{{todayRowData.tempMin}}-{{todayRowData.tempMax}}</text>℃</view>
-        <view class="windInfo">
-            <text class="windDir">{{todayRowData.windDirDay}} </text>
-            <text class="windScale">{{todayRowData.windScaleDay}}级</text>
+    <view class="today temperatureCard" wx:for="{{dailyData}}" wx:key="index">
+        <view class="title">{{newDateList[index]}}</view>
+        <view class="temp">
+            <text class="tempNum">{{dailyData[index].tempMin}}-{{dailyData[index].tempMax}}</text>℃
         </view>
-
-    </view>
-    <view class="tomorrow temperatureCard">
-        <view class="title">明 天</view>
-        <view class="temp"><text class="tempNum">{{tomorrowRowData.tempMin}}-{{tomorrowRowData.tempMax}}</text>℃</view>
         <view class="windInfo">
-            <text class="windDir">{{tomorrowRowData.windDirDay}} </text>
-            <text class="windScale">{{tomorrowRowData.windScaleDay}}级</text>
+            <text class="windDir">{{dailyData[index].windDirDay}} </text>
+            <text class="windScale">{{dailyData[index].windScaleDay}} 级</text>
         </view>
-    </view>
-    <view class="afterTomorrow temperatureCard">
-        <view class="title">后 天</view>
-        <view class="temp"><text
-                class="tempNum">{{afterTomorrowRowData.tempMin}}-{{afterTomorrowRowData.tempMax}}</text>℃</view>
-        <view class="windInfo">
-            <text class="windDir">{{afterTomorrowRowData.windDirDay}} </text>
-            <text class="windScale">{{afterTomorrowRowData.windScaleDay}}级</text>
+        <view class="uvInfo">
+            紫外 {{dailyData[index].uvIndex}} 级
         </view>
     </view>
 </view>

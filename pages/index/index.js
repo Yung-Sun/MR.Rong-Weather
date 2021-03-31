@@ -81,9 +81,10 @@ Page({
     wx.request({
       url: `https://devapi.qweather.com/v7/weather/7d?key=74be5e8b8bdb46ca970b3703ae3f165d&location=${districtId}`,
       success: function (res) {
-        let todayRowData, tomorrowRowData, afterTomorrowRowData, day4RowData, day5RowData, day6RowData, day7RowData
-        [todayRowData, tomorrowRowData, afterTomorrowRowData, day4RowData, day5RowData, day6RowData, day7RowData] = res.data.daily
-        _page.setData({ todayRowData, tomorrowRowData, afterTomorrowRowData })
+        let todayRowData
+        [todayRowData] = res.data.daily
+        let dailyData = res.data.daily
+        _page.setData({ dailyData, todayRowData })
         _page.getFutureWeatherByHour(districtId)
         wx.hideLoading()
       }
