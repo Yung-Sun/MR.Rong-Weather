@@ -1,0 +1,15 @@
+<!--pages/author/author.wxml-->
+<view class="backButton" bindtap="back">
+    <text class="icon"></text>
+    <text>返回</text>
+</view>
+<view class="container">
+    <image class="photo" src="./img/authorPhoto.jpg"></image>
+    <view class="title">不愿透露姓名的容先生</view>
+    <view class="content">
+        <view>很高兴你会点开这个页面，来到这里，没错，我就是这个小程序的作者，容先生🤓</view>
+        <view>如果小程序用着感觉不错，可以点个收藏或者点个赞，谢谢你！</view>
+        <view>使用过程中如果遇到Bug或者想增加一些奇妙小功能优化体验，可以点击下方按钮随时与我联系 : )</view>
+    </view>
+    <button open-type="contact">💬</button>
+</view>

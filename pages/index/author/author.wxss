@@ -1,0 +1,75 @@
+/* pages/author/author.wxss */
+.backButton{
+    width: 100px;
+    position: relative;
+    /* border: 1px solid red; */
+    left: 20px;
+    top:10px;
+}
+.icon::after{
+    content: '';
+    width: 2px;
+    height: 10px;
+    background: #333;
+    position: absolute;
+    left: 10px;
+    top: 3px;
+    rotate: 45deg;
+}
+.icon::before{
+    content: '';
+    width: 2px;
+    height: 10px;
+    background: #333;
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    rotate: -45deg;
+}
+.backButton>text{
+    color: #666;
+    margin-left: 10px;
+}
+.container{
+    /* border: 1px solid red; */
+    margin: 20px 10px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+.photo{
+    height: 160px;
+    width: 160px;
+    border-radius: 50%;
+    margin: 20px 0;
+}
+.title{
+    font-weight: bold;
+}
+.content{
+    padding: 20rpx 100rpx;
+}
+.content>view{
+    margin: 1.2em 0;
+    font-size: 13px;
+    color: #666;
+    text-indent: 1em;
+    text-align: left;
+}
+button{
+    width: 40px;
+    height: 40px;
+    font-size: 0.8em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    position: absolute;
+    right: 30px;
+    bottom: -50px;
+}
+button::after,button::before{
+    border-radius: 50%;
+}
