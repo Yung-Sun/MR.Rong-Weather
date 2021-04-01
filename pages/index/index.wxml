@@ -1,4 +1,16 @@
 <!-- index.wxml -->
+<view class="menu" bindtap="changeMenuVisible">
+  <image class="menuIcon" src="./images/menu.png"></image>
+</view>
+<view class="cover" wx:if="{{menuVisible}}" bindtap="changeMenuVisible"></view>
+<view class="menuArea">
+  <navigator class="iconWrapper" wx:if="{{menuVisible}}" url="/pages/index/detail/detail">
+    <image class="lineIcon icon" src="./images/line.png"></image>
+  </navigator>
+  <navigator class="iconWrapper" wx:if="{{menuVisible}}" url="/pages/index/author/author">
+    <image class="authorIcon icon" src="./images/author.png"></image>
+  </navigator>
+</view>
 <view class="container">
   <view class="location">
     <text class="locationIcon"></text>

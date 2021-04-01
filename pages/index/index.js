@@ -29,6 +29,15 @@ let showLoading = (content) => {
     mask: true
   })
 }
+let setStorage = (key, data) => {
+  wx.setStorage({
+    key: key,
+    data: data,
+    success: function (res) {
+      console.log(key + '已储存在Storage')
+    }
+  })
+}
 
 Page({
   data: {
@@ -36,7 +45,8 @@ Page({
     districtId: undefined,
     text: '-',
     iconSrc: '../../images/icon/999.png',
-    tempListType: 'tempByDay'
+    tempListType: 'tempByDay',
+    menuVisible: false
   },
 
 
@@ -47,9 +57,7 @@ Page({
     showLoading('正在定位')
     fetch()
   },
-
-
-
+  // 页面方法
   getDistrict(latitude, longitude) {
     _page = this;
     wx.request({
@@ -86,6 +94,7 @@ Page({
         let dailyData = res.data.daily
         _page.setData({ dailyData, todayRowData })
         _page.getFutureWeatherByHour(districtId)
+        setStorage('dailyData', dailyData)
         wx.hideLoading()
       }
     })
@@ -109,6 +118,11 @@ Page({
     let tempListType = e.currentTarget.dataset.type
     _page.setData({ tempListType })
   },
+  changeMenuVisible() {
+    let menuVisible = !this.data.menuVisible
+    _page.setData({ menuVisible })
+  },
+
   // 监听用户下拉动作
   onPullDownRefresh: function () {
     _this = this;

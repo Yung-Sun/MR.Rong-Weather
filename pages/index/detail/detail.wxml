@@ -1,2 +1,16 @@
 <!--pages/moreInfo/detail.wxml-->
-<text>pages/moreInfo/detail.wxml</text>
+<view class="container">
+    <canvas canvas-id="tempByDay" disable-scroll="true" class="canvas" bindtouchstart="touchHandler"></canvas>
+</view>
+<view class="weatherList">
+    <view class="weatherWrapper" wx:for="{{dailyData}}" wx:key="index">
+        <text class="data">{{dateList[index]}}</text>
+        <view class="weatherConditions">
+            <image class="weatherIcon" src="{{srcList[index]}}" alt="天气图标"></image>
+            <text class="weatherText">{{dailyData[index].textDay}}</text>
+        </view>
+        <text class="temp">{{dailyData[index].tempMin}}℃ - {{dailyData[index].tempMax}}℃</text>
+        <text class="wind">{{dailyData[index].windDirDay}} {{dailyData[index].windScaleDay}}级</text>
+        <text class="uv">紫外 {{dailyData[index].uvIndex}}级</text>
+    </view>
+</view>

@@ -46,7 +46,9 @@
     margin: 20px 0;
 }
 .title{
+    font-size: 18px;
     font-weight: bold;
+    color:#333;
 }
 .content{
     padding: 20rpx 100rpx;
@@ -67,8 +69,14 @@ button{
     align-items: center;
     border-radius: 50%;
     position: absolute;
-    right: 30px;
+    right: 50px;
     bottom: -50px;
+    padding: 0;
+    background: none;
+}
+button> .messageIcon{
+    width: 20px;
+    height: 20px;
 }
 button::after,button::before{
     border-radius: 50%;

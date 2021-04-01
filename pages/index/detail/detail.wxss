@@ -1,1 +1,31 @@
 /* pages/moreInfo/detail.wxss */
+.canvas{
+    margin-top: 20px;
+    height: 250px;
+}
+
+
+.weatherWrapper{
+    border-radius: 8px;
+    /* border: 1px solid red; */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    margin: 15px 15px;
+    background: #f6f6f6;
+}
+.data{
+    font-weight: bold;
+}
+.weatherConditions{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.weatherIcon{
+    width: 25px;
+    height: 25px;
+}
+
