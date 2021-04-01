@@ -20,6 +20,8 @@
 }
 .menuArea{
     /* border: 1px solid red; */
+    min-height: 80px;
+    min-width: 50px;
     position: absolute;
     top: 30px;
     left: 10px;

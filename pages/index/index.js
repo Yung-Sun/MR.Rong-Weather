@@ -120,6 +120,19 @@ Page({
   },
   changeMenuVisible() {
     let menuVisible = !this.data.menuVisible
+    if (menuVisible) {
+      this.animate('.iconWrapper', [
+        { translateX: -20, opacity: 0 },
+        { translateX: 0, opacity: 1 }
+      ], 200)
+    } else if (!menuVisible) {
+      console.log('hi')
+      this.animate('.iconWrapper', [
+        { translateX: 0, opacity: 0 },
+        { translateX: -20, opacity: 1 }
+      ], 200)
+    }
+
     _page.setData({ menuVisible })
   },
 
